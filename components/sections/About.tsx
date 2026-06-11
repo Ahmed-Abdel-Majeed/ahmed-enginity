@@ -58,28 +58,43 @@ export default function About({ lang, profile }: { lang: Locale; profile: any })
           </div>
         </div>
 
-        {/* Expertise bars */}
-        <div ref={barsRef} className="glass-card rounded-2xl p-7">
-          <div className="font-mono text-xs tracking-widest mb-6" style={{ color: 'var(--accent)' }}>
-            // expertise_matrix.json
-          </div>
-          {profile.expertise.map((e: any) => (
-            <div key={e.label} className={`flex items-center py-3 border-b last:border-0 ${isAr ? 'flex-row-reverse' : ''}`} style={{ borderColor: 'rgba(255,255,255,.05)' }}>
-              <span className="text-xs min-w-[130px]" style={{ color: 'var(--muted)' }}>
-                {isAr ? e.labelAr : e.label}
-              </span>
-              <div className="flex-1 mx-4 h-1 rounded overflow-hidden" style={{ background: 'rgba(255,255,255,.06)' }}>
-                <div
-                  className="h-full rounded transition-all duration-[1400ms] ease-out"
-                  style={{ background: 'linear-gradient(90deg,var(--accent),var(--accent2))', width: 0 }}
-                  data-width={e.value}
+        {/* Media / Expertise */}
+        <div className="space-y-8">
+          {/* Profile Image (About) */}
+          <div className="relative group aspect-square max-w-[400px] mx-auto md:mx-0">
+             <div className="absolute inset-0 bg-[var(--accent)] opacity-10 blur-3xl group-hover:opacity-20 transition-opacity" />
+             <div className="relative h-full w-full rounded-2xl border border-white/5 overflow-hidden glass-card p-3">
+                <img 
+                  src={profile.profileImage || "/images/profile-placeholder.jpg"} 
+                  alt={profile.name}
+                  className="w-full h-full object-cover rounded-xl grayscale group-hover:grayscale-0 transition-all duration-700"
                 />
-              </div>
-              <span className="font-mono text-xs min-w-[36px] text-right" style={{ color: 'var(--text)' }}>
-                {e.value}%
-              </span>
+             </div>
+          </div>
+
+          {/* Expertise bars */}
+          <div ref={barsRef} className="glass-card rounded-2xl p-7">
+            <div className="font-mono text-xs tracking-widest mb-6" style={{ color: 'var(--accent)' }}>
+              // expertise_matrix.json
             </div>
-          ))}
+            {profile.expertise.map((e: any) => (
+              <div key={e.label} className={`flex items-center py-3 border-b last:border-0 ${isAr ? 'flex-row-reverse' : ''}`} style={{ borderColor: 'rgba(255,255,255,.05)' }}>
+                <span className="text-xs min-w-[130px]" style={{ color: 'var(--muted)' }}>
+                  {isAr ? e.labelAr : e.label}
+                </span>
+                <div className="flex-1 mx-4 h-1 rounded overflow-hidden" style={{ background: 'rgba(255,255,255,.06)' }}>
+                  <div
+                    className="h-full rounded transition-all duration-[1400ms] ease-out"
+                    style={{ background: 'linear-gradient(90deg,var(--accent),var(--accent2))', width: 0 }}
+                    data-width={e.value}
+                  />
+                </div>
+                <span className="font-mono text-xs min-w-[36px] text-right" style={{ color: 'var(--text)' }}>
+                  {e.value}%
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

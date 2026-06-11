@@ -55,25 +55,34 @@ export default function Hero({ lang, profile }: { lang: Locale; profile: any }) 
       {/* Canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 z-0" />
 
-      {/* Floating nodes */}
+      {/* Floating nodes & Profile Image */}
       <div className="absolute inset-0 pointer-events-none z-[1]">
-        <div className="animate-float absolute top-[15%] right-[8%] w-48 rounded-xl p-3 glass-card" style={{ animationDelay: '0s' }}>
-          <div className="font-mono text-[10px] tracking-widest mb-2" style={{ color: 'var(--accent)' }}>WhatsApp AI Agent</div>
-          <div className="h-1 rounded mb-1.5" style={{ background: 'linear-gradient(90deg,var(--accent),transparent)', width: '92%' }} />
-          <div className="h-1 rounded mb-1.5" style={{ background: 'linear-gradient(90deg,var(--accent),transparent)', width: '68%' }} />
-          <div className="flex gap-1.5 mt-2"><div className="w-2 h-2 rounded-full bg-emerald-400"/><div className="w-2 h-2 rounded-full" style={{background:'var(--accent)'}}/><div className="w-2 h-2 rounded-full bg-emerald-400"/></div>
-        </div>
-        <div className="animate-float absolute top-[55%] right-[12%] w-40 rounded-xl p-3 glass-card" style={{ animationDelay: '-2s', borderColor: 'rgba(124,58,237,.25)' }}>
-          <div className="font-mono text-[10px] tracking-widest mb-2" style={{ color: 'var(--accent)' }}>n8n Workflow</div>
-          <div className="h-1 rounded mb-1.5" style={{ background: 'linear-gradient(90deg,var(--accent2),transparent)', width: '90%' }} />
-          <div className="h-1 rounded mb-1.5" style={{ background: 'linear-gradient(90deg,var(--accent2),transparent)', width: '60%' }} />
-          <div className="flex gap-1.5 mt-2"><div className="w-2 h-2 rounded-full" style={{background:'var(--accent2)'}}/><div className="w-2 h-2 rounded-full" style={{background:'var(--accent)'}}/></div>
-        </div>
-        <div className="animate-float absolute top-[35%] right-[22%] w-32 rounded-xl p-3 glass-card" style={{ animationDelay: '-4s', borderColor: 'rgba(16,185,129,.2)' }}>
-          <div className="font-mono text-[10px] tracking-widest mb-2" style={{ color: 'var(--accent3)' }}>AI Response</div>
-          <div className="h-1 rounded mb-1.5" style={{ background: 'linear-gradient(90deg,var(--accent3),transparent)', width: '82%' }} />
-          <div className="h-1 rounded" style={{ background: 'linear-gradient(90deg,var(--accent3),transparent)', width: '55%' }} />
-          <div className="flex gap-1.5 mt-2"><div className="w-2 h-2 rounded-full bg-amber-400"/><div className="w-2 h-2 rounded-full bg-emerald-400"/></div>
+        {/* Profile Image Container */}
+        <div className="absolute top-[20%] right-[10%] md:right-[15%] w-[320px] h-[400px] hidden lg:block group">
+          <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent)] to-[var(--accent2)] rounded-3xl opacity-20 blur-2xl group-hover:opacity-40 transition-opacity duration-700" />
+          <div className="relative h-full w-full rounded-3xl border border-white/10 overflow-hidden glass-card p-2 transform rotate-2 group-hover:rotate-0 transition-transform duration-700">
+            <div className="h-full w-full rounded-2xl overflow-hidden relative grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700">
+               <img 
+                src={profile.profileImage || "/images/profile-placeholder.jpg"} 
+                alt={profile.name}
+                className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            </div>
+          </div>
+          
+          {/* Floating tags around image */}
+          <div className="animate-float absolute -top-10 -left-10 w-48 rounded-xl p-3 glass-card pointer-events-auto" style={{ animationDelay: '0s' }}>
+            <div className="font-mono text-[10px] tracking-widest mb-2" style={{ color: 'var(--accent)' }}>WhatsApp AI Agent</div>
+            <div className="h-1 rounded mb-1.5" style={{ background: 'linear-gradient(90deg,var(--accent),transparent)', width: '92%' }} />
+            <div className="flex gap-1.5 mt-2"><div className="w-2 h-2 rounded-full bg-emerald-400"/><div className="w-2 h-2 rounded-full" style={{background:'var(--accent)'}}/></div>
+          </div>
+          
+          <div className="animate-float absolute -bottom-8 -right-8 w-40 rounded-xl p-3 glass-card pointer-events-auto" style={{ animationDelay: '-2s', borderColor: 'rgba(124,58,237,.25)' }}>
+            <div className="font-mono text-[10px] tracking-widest mb-2" style={{ color: 'var(--accent2)' }}>n8n Workflow</div>
+            <div className="h-1 rounded mb-1.5" style={{ background: 'linear-gradient(90deg,var(--accent2),transparent)', width: '90%' }} />
+            <div className="flex gap-1.5 mt-2"><div className="w-2 h-2 rounded-full" style={{background:'var(--accent2)'}}/><div className="w-2 h-2 rounded-full" style={{background:'var(--accent)'}}/></div>
+          </div>
         </div>
       </div>
 
