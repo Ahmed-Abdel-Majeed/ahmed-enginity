@@ -1,0 +1,55 @@
+[
+  {
+    "id":"n8n-ar",
+    "title":"n8n Automation Masterclass — Arabic",
+    "titleAr":"ماستركلاس أتمتة n8n — بالعربية",
+    "platform":"Udemy",
+    "url":"https://www.udemy.com/user/ahmed-33706/",
+    "thumbnail":"/images/courses/n8n-course.jpg",
+    "rating":4.9,
+    "students":3200,
+    "hours":18,
+    "lectures":85,
+    "level":"All Levels",
+    "levelAr":"جميع المستويات",
+    "price":"$89",
+    "description":"The most comprehensive Arabic n8n course. Build real automation systems from scratch — WhatsApp bots, CRM automations, AI agents, and more.",
+    "descriptionAr":"أشمل كورس عربي في n8n. ابنِ أنظمة أتمتة حقيقية من الصفر — بوتات واتساب وأتمتة CRM ووكلاء AI والمزيد.",
+    "curriculum":[
+      { "section":"Introduction to n8n","lessons":8 },
+      { "section":"Nodes & Expressions","lessons":12 },
+      { "section":"HTTP & API Integrations","lessons":10 },
+      { "section":"WhatsApp Automation","lessons":14 },
+      { "section":"AI Agents with OpenAI","lessons":11 },
+      { "section":"Database & Supabase","lessons":9 },
+      { "section":"CRM Automation","lessons":8 },
+      { "section":"Production Deployment","lessons":13 }
+    ],
+    "featured":true
+  },
+  {
+    "id":"n8n-projects",
+    "title":"n8n Advanced Projects Course — Arabic",
+    "titleAr":"كورس تطبيقات ومشاريع n8n المتقدمة",
+    "platform":"Udemy",
+    "url":"https://www.udemy.com/course/n8n-advancedcoursen8n2026/?referralCode=C37B1A87EDACC8084C09",
+    "thumbnail":"/images/courses/n8n-projects.jpg",
+    "rating":5.0,
+    "students":150,
+    "hours":10,
+    "lectures":40,
+    "level":"Advanced",
+    "levelAr":"مستوى متقدم",
+    "price":"$7",
+    "description":"A practical projects-only course focusing on building complex AI agents and business automation systems using n8n.",
+    "descriptionAr":"كورس تطبيقات ومشاريع عملية فقط، يركز على بناء وكلاء ذكاء اصطناعي معقدة وأنظمة أتمتة للأعمال باستخدام n8n.",
+    "curriculum":[
+      { "section":"Advanced RAG Systems","lessons":5 },
+      { "section":"Voice AI Integration","lessons":8 },
+      { "section":"Multi-Agent Workflows","lessons":12 },
+      { "section":"Custom API Building","lessons":7 },
+      { "section":"Real-world Case Studies","lessons":8 }
+    ],
+    "featured":true
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "name": "Ahmed Abdelmajed",
+  "nameAr": "أحمد عبد المجيد",
+  "title": "AI Automation Engineer",
+  "titleAr": "مهندس أتمتة الذكاء الاصطناعي",
+  "tagline": "I design and build intelligent automation systems, AI agents, and scalable integrations that help companies automate operations, generate leads, and increase productivity.",
+  "taglineAr": "أصمم وأبني أنظمة أتمتة ذكية ووكلاء AI وتكاملات قابلة للتوسع تساعد الشركات على أتمتة عملياتها وتوليد العملاء المحتملين وزيادة الإنتاجية.",
+  "location": "Egypt",
+  "locationAr": "مصر",
+  "available": true,
+  "email": "enginity2@gmail.com",
+  "whatsapp": "+201501053538",
+  "stats": [
+    { "value": "50+", "label": "Automation Systems", "labelAr": "نظام أتمتة" },
+    { "value": "30+", "label": "AI Agents Built", "labelAr": "وكيل ذكاء اصطناعي" },
+    { "value": "100K+", "label": "YouTube Community", "labelAr": "مجتمع يوتيوب" },
+    { "value": "5+", "label": "Years Experience", "labelAr": "سنوات خبرة" }
+  ],
+  "skills": [
+    "n8n","OpenAI API","LangChain","RAG Systems","Supabase",
+    "WhatsApp Cloud API","Make.com","Telegram Bots","Vector DBs",
+    "Pinecone","Python","Prompt Engineering","Voice AI","Flutter"
+  ],
+  "expertise": [
+    { "label": "n8n Automation", "labelAr": "أتمتة n8n", "value": 97 },
+    { "label": "AI Agent Design", "labelAr": "تصميم وكلاء AI", "value": 92 },
+    { "label": "WhatsApp Systems", "labelAr": "أنظمة واتساب", "value": 95 },
+    { "label": "RAG / LangChain", "labelAr": "RAG / LangChain", "value": 85 },
+    { "label": "API Integrations", "labelAr": "تكاملات API", "value": 99 },
+    { "label": "Voice AI", "labelAr": "الذكاء الصوتي", "value": 80 }
+  ],
+  "about": "I'm an AI Automation Engineer specializing in building production-grade automation systems and AI agents for businesses across the MENA region and globally.",
+  "aboutAr": "أنا مهندس أتمتة ذكاء اصطناعي متخصص في بناء أنظمة أتمتة وعملاء AI للشركات في منطقة الشرق الأوسط وشمال أفريقيا وعلى مستوى العالم.",
+  "n8nWebhook": "https://ahmed147852354s.app.n8n.cloud/webhook/ahmedportfolio",
+  "calendlyUrl": "https://calendly.com/ahmed-enginity",
+  "seo": {
+    "keywords": ["Ahmed Abdelmajed","Ahmed Flow","AI Automation Engineer","n8n Expert","AI Agent Developer","WhatsApp AI Agent Developer","Automation Consultant","AI Automation Egypt"],
+    "ogImage": "/images/og-image.jpg",
+    "twitterHandle": "@ahmed_enginity"
+  }
+}

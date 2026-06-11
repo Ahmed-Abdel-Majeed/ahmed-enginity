@@ -1,0 +1,80 @@
+[
+  {
+    "id": "v1",
+    "title": "n8n for Beginners: What is n8n and How to use it for Automation and AI Agents",
+    "titleAr": "شرح n8n للمبتدئين | ما هو n8n وكيف تستخدمه في الأتمتة وبناء AI Agents",
+    "category": "n8n Automation",
+    "thumbnail": "https://img.youtube.com/vi/MiLSOP6ta2s/maxresdefault.jpg",
+    "url": "https://youtu.be/MiLSOP6ta2s",
+    "duration": "11:47",
+    "views": "154",
+    "date": "2026-03-15",
+    "description": "Detailed explanation of n8n and why it's one of the strongest open-source automation tools in 2026. If you're interested in building smart systems or AI Agents, this is your starting point.",
+    "descriptionAr": "في هذا الفيديو نشرح بالتفصيل ما هو n8n ولماذا تعتبر واحدة من أقوى أدوات الأتمتة (Automation) مفتوحة المصدر في 2026. لو مهتم ببناء أنظمة ذكية أو AI Agents، الفيديو ده نقطة البداية."
+  },
+  {
+    "id": "v2",
+    "title": "n8n & Facebook Messenger for Restaurants: Automate Replies and Orders",
+    "titleAr": "تجربة سيستم n8n مع فيسبوك ماسنجر لمطعم | أتمتة الردود واستقبل الطلبات",
+    "category": "Business Automation",
+    "thumbnail": "https://img.youtube.com/vi/8UBMduhp9eM/maxresdefault.jpg",
+    "url": "https://youtu.be/8UBMduhp9eM",
+    "duration": "5:09",
+    "views": "511",
+    "date": "2026-02-15",
+    "description": "Testing n8n integration with Facebook Messenger for a restaurant. Explaining how to fully automate replies and order receiving without human intervention.",
+    "descriptionAr": "في الفيديو ده بجرب سيستم n8n وربطه مع فيسبوك ماسنجر لمطعم، وبنشرح ازاي نعمل أتمتة كاملة للردود واستقبال طلبات العملاء بشكل تلقائي."
+  },
+  {
+    "id": "v3",
+    "title": "LinkedIn & n8n: Enable Auto-Posting | Social Media Automation",
+    "titleAr": "ربط LinkedIn بـ n8n وتفعيل النشر التلقائي | Social Media Automation",
+    "category": "Social Media",
+    "thumbnail": "https://img.youtube.com/vi/GmgrvqVvyE8/maxresdefault.jpg",
+    "url": "https://youtu.be/GmgrvqVvyE8",
+    "duration": "29:30",
+    "views": "1.2K",
+    "date": "2026-01-15",
+    "description": "First practical step in the Social Media Automation playlist using n8n. Specifically connecting LinkedIn for automatic publishing.",
+    "descriptionAr": "في الفيديو ده هنبدأ أول خطوة عملية في بلاي ليست أتمتة السوشيال ميديا باستخدام n8n 🚀 وربط LinkedIn للنشر التلقائي."
+  },
+  {
+    "id": "v4",
+    "title": "Multi-Platform Social Media Auto-Posting System with n8n",
+    "titleAr": "سيستم نشر تلقائي على كل السوشيال ميديا باستخدام n8n (تجربة حقيقية)",
+    "category": "Social Media",
+    "thumbnail": "https://img.youtube.com/vi/J7Pz17nU6tk/maxresdefault.jpg",
+    "url": "https://youtu.be/J7Pz17nU6tk",
+    "duration": "4:50",
+    "views": "920",
+    "date": "2026-01-01",
+    "description": "A complete live system showing how one message can be automatically posted across all social media platforms using n8n.",
+    "descriptionAr": "في الفيديو ده بوريك سيستم كامل شغال قدامك 👀 رسالة واحدة بس بتتنشر على كل منصات السوشيال ميديا أوتوماتيكلي."
+  },
+  {
+    "id": "v5",
+    "title": "AI Smart Dashboard: Manage FB & IG Messages in One Place",
+    "titleAr": "إدارة رسائل فيسبوك وإنستجرام من مكان واحد | Dashboard ذكي بالـ AI",
+    "category": "AI Dashboards",
+    "thumbnail": "https://img.youtube.com/vi/2j0pcgaI8nU/maxresdefault.jpg",
+    "url": "https://youtu.be/2j0pcgaI8nU",
+    "duration": "7:07",
+    "views": "784",
+    "date": "2026-01-10",
+    "description": "Social media message management has never been easier. Build an AI-powered smart dashboard to manage all your DMs.",
+    "descriptionAr": "إدارة رسائل السوشيال ميديا بقت أسهل من أي وقت 👌 في الفيديو ده هنبني Dashboard ذكي بالذكاء الاصطناعي لإدارة الكل."
+  },
+  {
+    "id": "v6",
+    "title": "Autonomous YouTube Video Uploader with AI & n8n",
+    "titleAr": "ازاي تعمل سيستم AI يرفع فيديوهات على يوتيوب لوحده 💰🤯",
+    "category": "Content Automation",
+    "thumbnail": "https://img.youtube.com/vi/Lw7QIGZahyw/maxresdefault.jpg",
+    "url": "https://youtu.be/Lw7QIGZahyw",
+    "duration": "22:47",
+    "views": "1.2K",
+    "date": "2026-01-20",
+    "description": "Detailed guide on building an AI system that receives commands via Telegram and automatically uploads videos to YouTube.",
+    "descriptionAr": "شرح بالتفصيل ازاي تعمل سيستم ذكي بيستقبل طلبك على تيليجرام ويقوم تلقائيًا برفع فديوهات على يوتيوب."
+  }
+]
