@@ -67,7 +67,7 @@ export default function About({ lang, profile }: { lang: Locale; profile: any })
                 <img 
                   src={profile.profileImage || "/images/profile-placeholder.jpg"} 
                   alt={profile.name}
-                  className="w-full h-full object-cover rounded-xl grayscale group-hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-full object-cover rounded-xl transition-all duration-700"
                 />
              </div>
           </div>

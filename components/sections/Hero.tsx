@@ -61,7 +61,7 @@ export default function Hero({ lang, profile }: { lang: Locale; profile: any }) 
         <div className="absolute top-[20%] right-[10%] md:right-[15%] w-[320px] h-[400px] hidden lg:block group">
           <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent)] to-[var(--accent2)] rounded-3xl opacity-20 blur-2xl group-hover:opacity-40 transition-opacity duration-700" />
           <div className="relative h-full w-full rounded-3xl border border-white/10 overflow-hidden glass-card p-2 transform rotate-2 group-hover:rotate-0 transition-transform duration-700">
-            <div className="h-full w-full rounded-2xl overflow-hidden relative grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700">
+            <div className="h-full w-full rounded-2xl overflow-hidden relative transition-all duration-700">
                <img 
                 src={profile.profileImage || "/images/profile-placeholder.jpg"} 
                 alt={profile.name}

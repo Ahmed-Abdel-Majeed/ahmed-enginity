@@ -3,6 +3,7 @@ import { getProfile, getProjects, getServices, getTestimonials, getVideos, getCo
 import Navbar from '@/components/sections/Navbar'
 import Hero from '@/components/sections/Hero'
 import About from '@/components/sections/About'
+import Enginity from '@/components/sections/Enginity'
 import Services from '@/components/sections/Services'
 import Projects from '@/components/sections/Projects'
 import Blog from '@/components/sections/Blog'
@@ -30,6 +31,7 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
       <main>
         <Hero lang={lang} profile={profile} />
         <About lang={lang} profile={profile} />
+        <Enginity lang={lang} />
         <Services lang={lang} services={services} />
         <Projects lang={lang} projects={projects} />
         <Blog lang={lang} posts={posts.slice(0, 3)} />
