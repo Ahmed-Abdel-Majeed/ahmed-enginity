@@ -11,11 +11,16 @@ export default function Courses({ lang, courses }: { lang: Locale; courses: any[
       <div className="grid md:grid-cols-2 gap-6">
         {courses.map((c: any) => (
           <div key={c.id} className="glass-card rounded-2xl overflow-hidden" style={isAr ? { textAlign: 'right' } : {}}>
-            <div className="h-48 flex items-center justify-center relative overflow-hidden" style={{ background: 'linear-gradient(135deg,#0a1628 0%,#1a0a3a 100%)' }}>
-              <div className="text-6xl opacity-30">🎓</div>
+            <div className="h-48 relative overflow-hidden" style={{ background: 'linear-gradient(135deg,#0a1628 0%,#1a0a3a 100%)' }}>
+              <img 
+                src={c.thumbnail} 
+                alt={isAr ? c.titleAr : c.title}
+                className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
               <div className="absolute inset-0 flex items-end p-5">
                 <div>
-                  <span className="font-mono text-xs px-2 py-1 rounded" style={{ background: 'rgba(124,58,237,.3)', border: '1px solid rgba(124,58,237,.4)', color: '#c4b5fd' }}>{c.platform}</span>
+                  <span className="font-mono text-xs px-2 py-1 rounded" style={{ background: 'rgba(124,58,237,.3)', border: '1px solid rgba(124,58,237,.4)', color: '#c4b5fd', backdropFilter: 'blur(4px)' }}>{c.platform}</span>
                 </div>
               </div>
             </div>

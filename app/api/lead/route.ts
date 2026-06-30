@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
 
     if (!email) return NextResponse.json({ error: 'Email required' }, { status: 400 })
 
-    const webhook = process.env.N8N_WEBHOOK_URL || 'https://ahmed147852354s.app.n8n.cloud/webhook/ahmedportfolio'
+    const webhook = process.env.N8N_WEBHOOK_URL || 'https://ahmed56963.app.n8n.cloud/webhook/ahmedportfolio'
 
     // Forward to n8n — n8n handles Telegram notify, Google Sheets, CRM
     const res = await fetch(webhook, {
@@ -16,11 +16,15 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({ name, email, projectType: type, message, source: source || 'contact_form', lang, timestamp: new Date().toISOString() }),
     })
 
-    if (!res.ok) throw new Error('n8n webhook failed')
+    if (!res.ok) {
+      const errorText = await res.text()
+      console.error(`n8n webhook failed with status ${res.status}:`, errorText)
+      throw new Error(`n8n webhook failed: ${res.status}`)
+    }
 
     return NextResponse.json({ success: true })
-  } catch (err) {
-    console.error('Lead API error:', err)
-    return NextResponse.json({ error: 'Failed to process lead' }, { status: 500 })
+  } catch (err: any) {
+    console.error('Lead API error:', err.message)
+    return NextResponse.json({ error: 'Failed to process lead', details: err.message }, { status: 500 })
   }
 }

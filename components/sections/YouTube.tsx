@@ -12,12 +12,18 @@ export default function YouTube({ lang, videos }: { lang: Locale; videos: any[] 
         {videos.map((v: any) => (
           <a key={v.id} href={v.url} target="_blank" rel="noopener noreferrer" className="glass-card rounded-2xl overflow-hidden transition-all hover:-translate-y-1 hover:border-[rgba(255,0,0,.3)] group block" style={isAr ? { textAlign: 'right' } : {}}>
             <div className="relative aspect-video overflow-hidden" style={{ background: '#0a0a0a' }}>
+              <img 
+                src={v.thumbnail} 
+                alt={isAr ? v.titleAr : v.title}
+                className="w-full h-full object-cover transition-transform group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-all" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-14 h-14 rounded-full flex items-center justify-center transition-transform group-hover:scale-110" style={{ background: 'rgba(255,0,0,.85)' }}>
+                <div className="w-14 h-14 rounded-full flex items-center justify-center transition-transform group-hover:scale-110" style={{ background: 'rgba(255,0,0,.85)', boxShadow: '0 0 20px rgba(255,0,0,.4)' }}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                 </div>
               </div>
-              <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded text-xs font-mono" style={{ background: 'rgba(0,0,0,.8)', color: '#fff' }}>{v.duration}</div>
+              <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded text-xs font-mono" style={{ background: 'rgba(0,0,0,.8)', color: '#fff', backdropFilter: 'blur(4px)' }}>{v.duration}</div>
             </div>
             <div className="p-4">
               <div className={`flex items-center gap-2 mb-2 text-xs font-mono ${isAr ? 'flex-row-reverse' : ''}`}>
