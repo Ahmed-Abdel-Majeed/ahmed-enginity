@@ -61,9 +61,9 @@ export default function Enginity({ lang }: { lang: Locale }) {
       <div
         className={`relative rounded-3xl overflow-hidden transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         style={{
-          background: 'linear-gradient(145deg, rgba(0,212,255,0.04) 0%, rgba(6,20,40,0.9) 40%, rgba(124,58,237,0.05) 100%)',
-          border: '1px solid rgba(0,212,255,.14)',
-          boxShadow: 'inset 0 1px 0 rgba(0,212,255,.1), inset 0 -1px 0 rgba(0,0,0,.5), 0 0 60px rgba(0,212,255,.05)',
+          background: '#061020',
+          border: '1px solid rgba(0,212,255,.2)',
+          boxShadow: '0 20px 40px rgba(6,16,32,0.25)',
         }}
       >
         {/* Engraved grid overlay */}

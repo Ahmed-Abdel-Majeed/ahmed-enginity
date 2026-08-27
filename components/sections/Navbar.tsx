@@ -5,13 +5,13 @@ import { usePathname } from 'next/navigation'
 import { t, type Locale } from '@/lib/i18n'
 
 export default function Navbar({ lang, socials }: { lang: Locale; socials: any }) {
-  const [theme, setTheme] = useState<'dark'|'light'>('dark')
+  const [theme, setTheme] = useState<'dark'|'light'>('light')
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const tr = t[lang]
 
   useEffect(() => {
-    const saved = localStorage.getItem('theme') as 'dark'|'light' || 'dark'
+    const saved = localStorage.getItem('theme') as 'dark'|'light' || 'light'
     setTheme(saved)
     document.documentElement.setAttribute('data-theme', saved)
   }, [])

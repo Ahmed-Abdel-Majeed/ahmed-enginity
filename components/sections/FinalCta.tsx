@@ -8,7 +8,7 @@ export default function FinalCta({ lang }: { lang: Locale }) {
   const isAr = lang === 'ar'
 
   return (
-    <section className="py-24 px-8 md:px-20 relative overflow-hidden z-10" style={{ background: 'var(--bg2)', borderTop: '1px solid var(--border)' }}>
+    <section className="py-24 px-8 md:px-20 relative overflow-hidden z-10 bg-[#061020] border-t border-white/10">
       {/* Glow background */}
       <div className="absolute inset-0 pointer-events-none opacity-20" style={{ background: 'radial-gradient(circle at 50% 50%, var(--accent) 0%, transparent 60%)' }} />
 

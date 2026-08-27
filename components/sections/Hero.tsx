@@ -86,31 +86,31 @@ export default function Hero({ lang, profile }: { lang: Locale; profile: any }) 
             </div>
             
             {/* Floating tags inside 3D space - Business Workflow Nodes */}
-            <div className="animate-float absolute -top-10 -left-12 w-52 rounded-xl p-3 glass-card pointer-events-auto" style={{ transform: 'translateZ(40px)', animationDelay: '0s', borderColor: 'rgba(45,212,191,.3)' }}>
+            <div className="animate-float absolute -top-10 -left-12 w-52 rounded-xl p-3 bg-white border border-slate-200 shadow-xl pointer-events-auto" style={{ transform: 'translateZ(40px)', animationDelay: '0s' }}>
               <div className="flex items-center gap-2 mb-1">
-                <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
-                <div className="font-mono text-[10px] tracking-widest font-bold" style={{ color: '#2dd4bf' }}>WhatsApp AI Agent</div>
+                <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
+                <div className="font-mono text-[10px] tracking-widest font-bold text-teal-600">WhatsApp AI Agent</div>
               </div>
-              <p className="text-[11px] text-white/80 leading-tight">Instant Inquiry &amp; Qualification</p>
-              <div className="h-0.5 rounded mt-2 opacity-80" style={{ background: 'linear-gradient(90deg,#2dd4bf,transparent)' }} />
+              <p className="text-[11px] text-slate-700 font-medium leading-tight">Instant Inquiry &amp; Qualification</p>
+              <div className="h-0.5 rounded mt-2 opacity-80" style={{ background: 'linear-gradient(90deg,#00A9D6,transparent)' }} />
             </div>
             
-            <div className="animate-float absolute top-[40%] -right-12 w-48 rounded-xl p-3 glass-card pointer-events-auto" style={{ transform: 'translateZ(50px)', animationDelay: '-1.5s', borderColor: 'rgba(167,139,250,.3)' }}>
+            <div className="animate-float absolute top-[40%] -right-12 w-48 rounded-xl p-3 bg-white border border-slate-200 shadow-xl pointer-events-auto" style={{ transform: 'translateZ(50px)', animationDelay: '-1.5s' }}>
               <div className="flex items-center gap-2 mb-1">
-                <span className="w-2 h-2 rounded-full bg-purple-400" />
-                <div className="font-mono text-[10px] tracking-widest font-bold" style={{ color: '#a78bfa' }}>CRM Auto-Sync</div>
+                <span className="w-2 h-2 rounded-full bg-purple-500" />
+                <div className="font-mono text-[10px] tracking-widest font-bold text-purple-600">CRM Auto-Sync</div>
               </div>
-              <p className="text-[11px] text-white/80 leading-tight">Lead Data &amp; Booking Pipeline</p>
-              <div className="h-0.5 rounded mt-2 opacity-80" style={{ background: 'linear-gradient(90deg,#a78bfa,transparent)' }} />
+              <p className="text-[11px] text-slate-700 font-medium leading-tight">Lead Data &amp; Booking Pipeline</p>
+              <div className="h-0.5 rounded mt-2 opacity-80" style={{ background: 'linear-gradient(90deg,#6D3AE8,transparent)' }} />
             </div>
 
-            <div className="animate-float absolute -bottom-8 -left-8 w-44 rounded-xl p-3 glass-card pointer-events-auto" style={{ transform: 'translateZ(60px)', animationDelay: '-3s', borderColor: 'rgba(0,212,255,.3)' }}>
+            <div className="animate-float absolute -bottom-8 -left-8 w-44 rounded-xl p-3 bg-white border border-slate-200 shadow-xl pointer-events-auto" style={{ transform: 'translateZ(60px)', animationDelay: '-3s' }}>
               <div className="flex items-center gap-2 mb-1">
-                <span className="w-2 h-2 rounded-full bg-cyan-400" />
-                <div className="font-mono text-[10px] tracking-widest font-bold" style={{ color: '#00d4ff' }}>Voice &amp; Follow-up</div>
+                <span className="w-2 h-2 rounded-full bg-cyan-500" />
+                <div className="font-mono text-[10px] tracking-widest font-bold text-cyan-600">Voice &amp; Follow-up</div>
               </div>
-              <p className="text-[11px] text-white/80 leading-tight">24/7 Smart Appointment Call</p>
-              <div className="h-0.5 rounded mt-2 opacity-80" style={{ background: 'linear-gradient(90deg,#00d4ff,transparent)' }} />
+              <p className="text-[11px] text-slate-700 font-medium leading-tight">24/7 Smart Appointment Call</p>
+              <div className="h-0.5 rounded mt-2 opacity-80" style={{ background: 'linear-gradient(90deg,#00A9D6,transparent)' }} />
             </div>
           </TiltCard>
         </motion.div>
@@ -137,10 +137,10 @@ export default function Hero({ lang, profile }: { lang: Locale; profile: any }) 
           whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className={`font-bold leading-tight tracking-tight mb-4 ${isAr ? 'font-arabic' : 'font-display'}`}
-          style={{ fontSize: 'clamp(40px,5.5vw,72px)' }}
+          className={`font-extrabold leading-tight tracking-tight mb-4 text-[#0F172A] ${isAr ? 'font-arabic' : 'font-display'}`}
+          style={{ fontSize: 'clamp(44px,6vw,76px)' }}
         >
-          <span className="block gradient-text">{tr.hero.headline}</span>
+          <span>{tr.hero.headline}</span>
         </motion.h1>
 
         {/* Subtitle */}
@@ -149,7 +149,7 @@ export default function Hero({ lang, profile }: { lang: Locale; profile: any }) 
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-base md:text-lg leading-relaxed max-w-xl mt-4 mb-4 font-sans text-white/90"
+          className="text-lg md:text-xl leading-relaxed max-w-xl mt-4 mb-4 font-sans text-slate-700 font-medium"
         >
           {tr.hero.sub}
         </motion.p>
@@ -160,7 +160,7 @@ export default function Hero({ lang, profile }: { lang: Locale; profile: any }) 
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="font-mono text-xs tracking-wider mb-8 text-[var(--accent)]"
+          className="font-mono text-xs font-bold tracking-wider mb-8 text-[#0891B2]"
         >
           {tr.hero.capabilities}
         </motion.div>
@@ -173,10 +173,10 @@ export default function Hero({ lang, profile }: { lang: Locale; profile: any }) 
           transition={{ duration: 0.6, delay: 0.3 }}
           className={`flex gap-4 flex-wrap pointer-events-auto items-center ${isAr ? 'flex-row-reverse' : ''}`}
         >
-          <MagneticButton as="a" href="#contact" className="px-7 py-3.5 rounded-xl text-sm font-bold text-white transition-all shadow-lg" style={{ background: 'linear-gradient(135deg,var(--accent),var(--accent2))', boxShadow: '0 4px 20px rgba(0,212,255,.25)' }}>
+          <MagneticButton as="a" href="#contact" className="px-8 py-4 rounded-xl text-sm font-bold text-white transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5" style={{ background: 'linear-gradient(135deg, #06B6D4, #7C3AED)' }}>
             {tr.hero.cta1}
           </MagneticButton>
-          <MagneticButton as="a" href="#projects" className="px-7 py-3.5 rounded-xl text-sm font-semibold transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]" style={{ border: '1px solid var(--border)', color: 'var(--text)' }}>
+          <MagneticButton as="a" href="#projects" className="px-8 py-4 rounded-xl text-sm font-bold bg-white text-slate-800 border border-slate-300 shadow-sm transition-all hover:border-[#0891B2] hover:text-[#0891B2]">
             {tr.hero.cta2}
           </MagneticButton>
         </motion.div>
@@ -187,7 +187,7 @@ export default function Hero({ lang, profile }: { lang: Locale; profile: any }) 
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-6 text-xs font-mono text-white/50"
+          className="mt-6 text-xs font-mono font-medium text-slate-500"
         >
           🔒 {tr.hero.trust}
         </motion.div>

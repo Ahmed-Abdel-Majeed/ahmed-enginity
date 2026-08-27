@@ -18,7 +18,7 @@ export default function ProofStrip({ lang }: { lang: Locale }) {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <div className={`text-center md:text-left ${isAr ? 'md:text-right' : ''}`}>
           <span className="font-mono text-xs tracking-widest uppercase" style={{ color: 'var(--accent)' }}>// PROOF & IMPACT</span>
-          <h3 className="text-base font-bold tracking-tight text-white mt-1">
+          <h3 className="text-base font-bold tracking-tight mt-1" style={{ color: 'var(--text)' }}>
             {tr.proof.title}
           </h3>
         </div>
@@ -30,15 +30,7 @@ export default function ProofStrip({ lang }: { lang: Locale }) {
               href={item.href}
               className="group flex flex-col items-center transition-all hover:scale-105"
             >
-              <span
-                className="font-mono text-2xl md:text-3xl font-bold tracking-tight"
-                style={{
-                  background: 'linear-gradient(135deg,var(--accent),var(--accent2))',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
-              >
+              <span className="font-mono text-3xl md:text-4xl font-extrabold tracking-tight text-[#0F172A]">
                 {item.value}
               </span>
               <span className="text-xs font-sans mt-0.5 group-hover:text-[var(--accent)] transition-colors" style={{ color: 'var(--muted)' }}>

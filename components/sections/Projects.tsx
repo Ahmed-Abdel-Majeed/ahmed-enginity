@@ -97,48 +97,48 @@ export default function Projects({ lang, projects }: { lang: Locale; projects: a
               transition={{ duration: 0.4 }}
               className="h-full"
             >
-              <TiltCard intensity={5} className="group h-full rounded-2xl overflow-hidden bg-[var(--card)] border border-white/5 p-2 flex flex-col" style={isAr ? { textAlign: 'right' } : {}}>
+              <TiltCard intensity={5} className="group h-full rounded-2xl overflow-hidden bg-white border border-slate-300 shadow-md p-2 flex flex-col" style={isAr ? { textAlign: 'right' } : {}}>
                 {/* HTML / CSS Workflow Diagram Container */}
-                <div className="relative h-60 w-full rounded-xl overflow-hidden mb-4 p-1">
+                <div className="relative h-60 w-full rounded-xl overflow-hidden mb-4 p-1 bg-[#061020]">
                   <ProjectWorkflowDiagram projectId={p.id} isAr={isAr} />
                 </div>
 
                 <div className="px-4 pb-4 flex-1 flex flex-col justify-between">
                   <div>
-                    <div className="font-mono text-[10px] tracking-widest mb-1.5" style={{ color: 'var(--accent)' }}>
+                    <div className="font-mono text-[10px] tracking-widest font-bold mb-1.5 text-[#0891B2]">
                       // {p.category.toUpperCase()}
                     </div>
-                    <h3 className="text-xl font-bold mb-2 leading-tight font-sans text-white">{isAr ? p.titleAr : p.title}</h3>
+                    <h3 className="text-xl font-bold mb-2 leading-tight font-sans text-slate-900">{isAr ? p.titleAr : p.title}</h3>
 
                     {/* High-Impact Result Badge */}
                     {p.result && (
-                      <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-3 mb-4 flex items-center gap-3">
+                      <div className="bg-emerald-50 border border-emerald-300 rounded-xl p-3 mb-4 flex items-center gap-3 shadow-xs">
                         <span className="text-xl">📈</span>
                         <div>
-                          <div className="font-mono text-[10px] uppercase font-bold text-emerald-400 tracking-wider">
+                          <div className="font-mono text-[10px] uppercase font-bold text-emerald-700 tracking-wider">
                             {tr.projects.resultLabel}
                           </div>
-                          <div className="text-sm font-bold text-emerald-300">
+                          <div className="text-sm font-extrabold text-emerald-900">
                             {isAr ? p.resultAr : p.result}
                           </div>
                         </div>
                       </div>
                     )}
 
-                    <p className="text-xs leading-relaxed mb-4 text-white/70">{isAr ? p.descriptionAr : p.description}</p>
+                    <p className="text-xs leading-relaxed mb-4 text-slate-600 font-medium">{isAr ? p.descriptionAr : p.description}</p>
                     
                     {/* Problem / Built Summary */}
-                    <div className="bg-white/[0.02] border border-white/5 rounded-lg p-3 mb-4 space-y-1.5">
+                    <div className="bg-slate-50 border border-slate-200 rounded-lg p-3 mb-4 space-y-1.5">
                       {p.problem && (
                         <div className="text-xs">
-                          <span className="font-mono text-amber-400 font-semibold">{isAr ? 'المشكلة:' : 'PROBLEM:'} </span>
-                          <span className="text-white/70">{isAr ? p.problemAr : p.problem}</span>
+                          <span className="font-mono text-amber-700 font-bold">{isAr ? 'المشكلة:' : 'PROBLEM:'} </span>
+                          <span className="text-slate-700 font-medium">{isAr ? p.problemAr : p.problem}</span>
                         </div>
                       )}
                       {p.solution && (
                         <div className="text-xs">
-                          <span className="font-mono text-[var(--accent)] font-semibold">{tr.projects.builtLabel} </span>
-                          <span className="text-white/90">{isAr ? p.solutionAr : p.solution}</span>
+                          <span className="font-mono text-[#0891B2] font-bold">{tr.projects.builtLabel} </span>
+                          <span className="text-slate-900 font-semibold">{isAr ? p.solutionAr : p.solution}</span>
                         </div>
                       )}
                     </div>
