@@ -63,7 +63,7 @@ export default function Hero({ lang, profile }: { lang: Locale; profile: any }) 
       {/* Grid */}
       <div className="absolute inset-0 grid-bg z-0" />
       {/* Canvas */}
-      <canvas ref={canvasRef} className="absolute inset-0 z-0 opacity-80" />
+      <canvas ref={canvasRef} className="absolute inset-0 z-0 opacity-80 pointer-events-none" />
 
       {/* Floating nodes & Profile Image */}
       <div className="absolute inset-0 pointer-events-none z-[1]">
