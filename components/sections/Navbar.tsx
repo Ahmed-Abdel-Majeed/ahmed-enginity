@@ -31,8 +31,13 @@ export default function Navbar({ lang, socials }: { lang: Locale; socials: any }
 
   function toggleLang() {
     const next = lang === 'en' ? 'ar' : 'en'
-    const path = window.location.pathname.replace(`/${lang}`, `/${next}`)
-    window.location.href = path
+    if (typeof window !== 'undefined') {
+      const currentPath = window.location.pathname
+      const path = currentPath.includes(`/${lang}`)
+        ? currentPath.replace(`/${lang}`, `/${next}`)
+        : `/${next}`
+      window.location.href = path
+    }
   }
 
   const links = [

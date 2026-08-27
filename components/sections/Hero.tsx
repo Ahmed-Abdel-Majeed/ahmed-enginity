@@ -15,8 +15,10 @@ export default function Hero({ lang, profile }: { lang: Locale; profile: any }) 
   const ySpring = useSpring(yParallax, { stiffness: 400, damping: 90 })
 
   useEffect(() => {
-    const canvas = canvasRef.current!
-    const ctx = canvas.getContext('2d')!
+    if (!canvasRef.current) return
+    const canvas = canvasRef.current
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
     let W = canvas.width = window.innerWidth
     let H = canvas.height = window.innerHeight
     const pts = Array.from({ length: 80 }, () => ({
@@ -24,12 +26,13 @@ export default function Hero({ lang, profile }: { lang: Locale; profile: any }) 
       vx: (Math.random() - .5) * .3, vy: (Math.random() - .5) * .3,
       r: Math.random() * 1.4 + .5
     }))
-    const onResize = () => { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight }
+    const onResize = () => { if (canvas) { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight } }
     window.addEventListener('resize', onResize)
     let raf: number
     function draw() {
+      if (!ctx) return
       ctx.clearRect(0, 0, W, H)
-      const dark = document.documentElement.getAttribute('data-theme') !== 'light'
+      const dark = typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme') !== 'light'
       pts.forEach((p, i) => {
         p.x += p.vx; p.y += p.vy
         if (p.x < 0 || p.x > W) p.vx *= -1
