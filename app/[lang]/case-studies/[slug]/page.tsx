@@ -18,7 +18,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ lang: Locale; slug: string }> }) {
   const { lang, slug } = await params
   const project = getProject(slug)
-  if (!project) return {}
+  if (!project) {
+    return buildMetadata({ title: 'Case Study Not Found', description: '', path: `/case-studies/${slug}`, lang })
+  }
   return buildMetadata({ title: project.title, description: project.description, path: `/case-studies/${slug}`, lang })
 }
 
