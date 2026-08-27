@@ -14,7 +14,7 @@ export default function Cursor() {
   const y = useSpring(mouseY, springConfig)
 
   useEffect(() => {
-    if (window.matchMedia('(hover: none)').matches) {
+    if (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(hover: none)').matches) {
       setIsTouch(true)
       return
     }

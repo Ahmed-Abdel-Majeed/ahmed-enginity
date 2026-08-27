@@ -25,7 +25,9 @@ export function TiltCard({ children, className = '', intensity = 10, style }: Ti
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], [-intensity, intensity]);
 
   useEffect(() => {
-    setIsTouch(window.matchMedia('(hover: none)').matches);
+    if (typeof window !== 'undefined' && window.matchMedia) {
+      setIsTouch(window.matchMedia('(hover: none)').matches);
+    }
   }, []);
 
   useEffect(() => {
