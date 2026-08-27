@@ -12,8 +12,12 @@ export default function Blog({ lang, posts }: { lang: Locale; posts: any[] }) {
       <div className="grid md:grid-cols-3 gap-5">
         {posts.map((post: any) => (
           <Link key={post.slug} href={`/${lang}/blog/${post.slug}`} className="glass-card rounded-2xl overflow-hidden transition-all hover:-translate-y-1 hover:border-[rgba(0,212,255,.3)] group block" style={isAr ? { textAlign: 'right' } : {}}>
-            <div className="aspect-video bg-gradient-to-br from-[var(--bg3)] to-[var(--bg2)] flex items-center justify-center" style={{ background: 'linear-gradient(135deg,#0a1628,#061020)' }}>
-              <div className="text-3xl opacity-50">✍️</div>
+            <div className="aspect-video bg-gradient-to-br from-[var(--bg3)] to-[var(--bg2)] flex flex-col items-center justify-center relative overflow-hidden border-b border-white/5 group-hover:scale-105 transition-transform duration-500" style={{ background: 'linear-gradient(135deg,#0a1628,#0e7e68)' }}>
+              <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(var(--accent) 1px, transparent 1px)', backgroundSize: '16px 16px' }} />
+              <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-xl mb-2 backdrop-blur-md">
+                ⚡
+              </div>
+              <span className="font-mono text-[10px] tracking-widest text-[var(--accent)] uppercase z-10">// TECHNICAL ARTICLE</span>
             </div>
             <div className="p-5">
               <div className={`flex items-center gap-3 mb-3 text-xs font-mono ${isAr ? 'flex-row-reverse' : ''}`} style={{ color: 'var(--muted)' }}>

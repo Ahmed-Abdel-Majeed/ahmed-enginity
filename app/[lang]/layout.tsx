@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { locales, type Locale, getDir } from '@/lib/i18n'
 import { buildMetadata, personSchema, organizationSchema } from '@/lib/seo'
+import { NoiseOverlay } from '@/components/ui/NoiseOverlay'
 import './globals.css'
 
 export async function generateStaticParams() {
@@ -53,6 +54,7 @@ export default async function LangLayout({
         className="antialiased"
         suppressHydrationWarning
       >
+        <NoiseOverlay />
         {children}
       </body>
     </html>

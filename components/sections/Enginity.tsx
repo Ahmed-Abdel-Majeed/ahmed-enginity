@@ -108,37 +108,26 @@ export default function Enginity({ lang }: { lang: Locale }) {
               </div>
 
               <div className={isAr ? 'text-right' : ''}>
-                {/* Engraved wordmark */}
                 <h2
-                  className="font-bold tracking-wider"
+                  className="font-bold tracking-wider text-white"
                   style={{
-                    fontSize: 'clamp(28px,3.5vw,46px)',
+                    fontSize: 'clamp(24px,3vw,38px)',
                     fontFamily: 'var(--font-mono)',
-                    background: 'linear-gradient(135deg, #fff 0%, var(--accent) 50%, var(--accent2) 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                    letterSpacing: '0.08em',
-                    textShadow: 'none',
-                    filter: 'drop-shadow(0 0 12px rgba(0,212,255,0.3))',
                   }}
                 >
-                  ENGINITY
+                  {tr.enginity.title}
                 </h2>
                 <p
-                  className="font-mono text-[10px] tracking-[.3em] uppercase mt-1"
-                  style={{ color: 'rgba(0,212,255,.55)' }}
+                  className="font-mono text-xs tracking-wider mt-1 text-[var(--accent)]"
                 >
-                  {isAr ? 'بنية تحتية للذكاء الاصطناعي' : 'AI Infrastructure · SaaS'}
+                  {tr.enginity.subtitle}
                 </p>
               </div>
             </div>
 
             {/* Description */}
             <p className={`text-sm leading-relaxed mb-8 max-w-md ${isAr ? 'text-right' : ''}`} style={{ color: 'var(--muted)' }}>
-              {isAr
-                ? 'Enginity هي منصتي لبناء وتشغيل أنظمة ذكاء اصطناعي وأتمتة للشركات — من وكلاء واتساب إلى مسارات n8n الكاملة. بنيت على تجربة حقيقية مع أكثر من ٥٠ نظاماً إنتاجياً.'
-                : 'Enginity is my platform for building and running AI automation systems for businesses — from WhatsApp AI agents to full n8n workflow pipelines. Built on real-world experience across 50+ production deployments.'}
+              {tr.enginity.desc}
             </p>
 
             {/* CTA buttons */}
@@ -179,7 +168,7 @@ export default function Enginity({ lang }: { lang: Locale }) {
               {isAr ? '// ما نبنيه' : '// What We Build'}
             </p>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4"> 
               {FEATURES.map((f, i) => (
                 <div
                   key={f.en}

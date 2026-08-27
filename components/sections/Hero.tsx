@@ -1,11 +1,18 @@
 'use client'
 import { useEffect, useRef } from 'react'
 import { t, type Locale } from '@/lib/i18n'
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
+import { TiltCard } from '@/components/ui/TiltCard'
+import { Counter } from '@/components/ui/Counter'
+import { MagneticButton } from '@/components/ui/MagneticButton'
 
 export default function Hero({ lang, profile }: { lang: Locale; profile: any }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const tr = t[lang]
   const isAr = lang === 'ar'
+  const { scrollY } = useScroll()
+  const yParallax = useTransform(scrollY, [0, 1000], [0, 150])
+  const ySpring = useSpring(yParallax, { stiffness: 400, damping: 90 })
 
   useEffect(() => {
     const canvas = canvasRef.current!
@@ -53,83 +60,122 @@ export default function Hero({ lang, profile }: { lang: Locale; profile: any }) 
       {/* Grid */}
       <div className="absolute inset-0 grid-bg z-0" />
       {/* Canvas */}
-      <canvas ref={canvasRef} className="absolute inset-0 z-0" />
+      <canvas ref={canvasRef} className="absolute inset-0 z-0 opacity-80" />
 
       {/* Floating nodes & Profile Image */}
       <div className="absolute inset-0 pointer-events-none z-[1]">
         {/* Profile Image Container */}
-        <div className="absolute top-[20%] right-[10%] md:right-[15%] w-[320px] h-[400px] hidden lg:block group">
-          <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent)] to-[var(--accent2)] rounded-3xl opacity-20 blur-2xl group-hover:opacity-40 transition-opacity duration-700" />
-          <div className="relative h-full w-full rounded-3xl border border-white/10 overflow-hidden glass-card p-2 transform rotate-2 group-hover:rotate-0 transition-transform duration-700">
-            <div className="h-full w-full rounded-2xl overflow-hidden relative transition-all duration-700">
+        <motion.div 
+          style={{ y: ySpring }}
+          className="absolute top-[20%] right-[10%] md:right-[15%] w-[320px] h-[400px] hidden lg:block group"
+        >
+          {/* Blurred shadow independent of TiltCard */}
+          <motion.div 
+            style={{ y: useTransform(ySpring, y => (y as number) * 0.4) }} 
+            className="absolute -inset-4 bg-gradient-to-br from-[var(--accent)] to-[var(--accent2)] rounded-[3rem] opacity-20 blur-3xl" 
+          />
+          
+          <TiltCard intensity={25} className="w-full h-full rounded-3xl p-2 !shadow-none pointer-events-auto bg-transparent border-white/5 border backdrop-blur-md">
+            <div className="h-full w-full rounded-2xl overflow-hidden relative">
                <img 
                 src={profile.profileImage || "/images/profile-placeholder.jpg"} 
                 alt={profile.name}
-                className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700"
+                className="w-full h-full object-cover scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)]/80 via-transparent to-transparent mix-blend-overlay" />
             </div>
-          </div>
-          
-          {/* Floating tags around image */}
-          <div className="animate-float absolute -top-10 -left-10 w-48 rounded-xl p-3 glass-card pointer-events-auto" style={{ animationDelay: '0s' }}>
-            <div className="font-mono text-[10px] tracking-widest mb-2" style={{ color: 'var(--accent)' }}>WhatsApp AI Agent</div>
-            <div className="h-1 rounded mb-1.5" style={{ background: 'linear-gradient(90deg,var(--accent),transparent)', width: '92%' }} />
-            <div className="flex gap-1.5 mt-2"><div className="w-2 h-2 rounded-full bg-emerald-400"/><div className="w-2 h-2 rounded-full" style={{background:'var(--accent)'}}/></div>
-          </div>
-          
-          <div className="animate-float absolute -bottom-8 -right-8 w-40 rounded-xl p-3 glass-card pointer-events-auto" style={{ animationDelay: '-2s', borderColor: 'rgba(124,58,237,.25)' }}>
-            <div className="font-mono text-[10px] tracking-widest mb-2" style={{ color: 'var(--accent2)' }}>n8n Workflow</div>
-            <div className="h-1 rounded mb-1.5" style={{ background: 'linear-gradient(90deg,var(--accent2),transparent)', width: '90%' }} />
-            <div className="flex gap-1.5 mt-2"><div className="w-2 h-2 rounded-full" style={{background:'var(--accent2)'}}/><div className="w-2 h-2 rounded-full" style={{background:'var(--accent)'}}/></div>
-          </div>
-        </div>
+            
+            {/* Floating tags inside 3D space */}
+            <div className="animate-float absolute -top-10 -left-10 w-48 rounded-xl p-3 glass-card pointer-events-auto" style={{ transform: 'translateZ(40px)', animationDelay: '0s' }}>
+              <div className="font-mono text-[10px] tracking-widest mb-2" style={{ color: 'var(--accent)' }}>WhatsApp AI Agent</div>
+              <div className="h-1 rounded mb-1.5 opacity-60" style={{ background: 'linear-gradient(90deg,var(--accent),transparent)', width: '92%' }} />
+              <div className="flex gap-1.5 mt-2"><div className="w-1.5 h-1.5 rounded-full bg-emerald-400"/><div className="w-1.5 h-1.5 rounded-full" style={{background:'var(--accent)'}}/></div>
+            </div>
+            
+            <div className="animate-float absolute -bottom-8 -right-8 w-40 rounded-xl p-3 glass-card pointer-events-auto" style={{ transform: 'translateZ(60px)', animationDelay: '-2s', borderColor: 'rgba(124,58,237,.25)' }}>
+              <div className="font-mono text-[10px] tracking-widest mb-2" style={{ color: 'var(--accent2)' }}>n8n Workflow</div>
+              <div className="h-1 rounded mb-1.5 opacity-60" style={{ background: 'linear-gradient(90deg,var(--accent2),transparent)', width: '90%' }} />
+              <div className="flex gap-1.5 mt-2"><div className="w-1.5 h-1.5 rounded-full" style={{background:'var(--accent2)'}}/><div className="w-1.5 h-1.5 rounded-full" style={{background:'var(--accent)'}}/></div>
+            </div>
+          </TiltCard>
+        </motion.div>
       </div>
 
       {/* Content */}
       <div className={`relative z-[2] max-w-5xl px-8 md:px-20 mt-20 ${isAr ? 'text-right' : ''}`}>
-        {/* Badge */}
-        <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono mb-7`} style={{ background: 'rgba(0,212,255,.07)', border: '1px solid rgba(0,212,255,.2)', color: 'var(--accent)' }}>
+        {/* Badge / Eyebrow */}
+        <motion.div 
+          initial={{ opacity: 0, rotateX: -15, y: -20 }}
+          whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono mb-7 pointer-events-auto`} 
+          style={{ background: 'rgba(0,212,255,.07)', border: '1px solid rgba(0,212,255,.2)', color: 'var(--accent)' }}
+        >
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-dot" />
-          {tr.hero.badge}
-        </div>
+          {tr.hero.eyebrow}
+        </motion.div>
 
-        {/* Name */}
-        <h1 className="font-bold leading-none tracking-tight mb-3" style={{ fontSize: 'clamp(44px,6.5vw,82px)' }}>
-          <span className="block gradient-text">{profile.name}</span>
-          <span className="block text-[0.52em] font-light mt-2" style={{ color: 'var(--muted)' }}>
-            {isAr ? profile.titleAr : profile.title}
-          </span>
-        </h1>
+        {/* Headline */}
+        <motion.h1 
+          initial={{ opacity: 0, rotateX: -10, y: 30 }}
+          whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className={`font-bold leading-tight tracking-tight mb-4 ${isAr ? 'font-arabic' : 'font-display'}`}
+          style={{ fontSize: 'clamp(40px,5.5vw,72px)' }}
+        >
+          <span className="block gradient-text">{tr.hero.headline}</span>
+        </motion.h1>
 
-        {/* Desc */}
-        <p className="text-base leading-relaxed max-w-xl mt-6 mb-10" style={{ color: 'var(--muted)' }}>
-          {isAr ? profile.taglineAr : profile.tagline}
-        </p>
+        {/* Subtitle */}
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-base md:text-lg leading-relaxed max-w-xl mt-4 mb-4 font-sans text-white/90"
+        >
+          {tr.hero.sub}
+        </motion.p>
+
+        {/* Capabilities Pill */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="font-mono text-xs tracking-wider mb-8 text-[var(--accent)]"
+        >
+          {tr.hero.capabilities}
+        </motion.div>
 
         {/* CTAs */}
-        <div className={`flex gap-4 flex-wrap ${isAr ? 'flex-row-reverse' : ''}`}>
-          <a href="#projects" className="px-7 py-3 rounded-lg text-sm font-semibold text-white transition-all hover:-translate-y-0.5" style={{ background: 'linear-gradient(135deg,var(--accent),var(--accent2))', boxShadow: '0 4px 20px rgba(0,212,255,.2)' }}>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className={`flex gap-4 flex-wrap pointer-events-auto items-center ${isAr ? 'flex-row-reverse' : ''}`}
+        >
+          <MagneticButton as="a" href="#contact" className="px-7 py-3.5 rounded-xl text-sm font-bold text-white transition-all shadow-lg" style={{ background: 'linear-gradient(135deg,var(--accent),var(--accent2))', boxShadow: '0 4px 20px rgba(0,212,255,.25)' }}>
             {tr.hero.cta1}
-          </a>
-          <a href="#contact" className="px-7 py-3 rounded-lg text-sm transition-all hover:border-[var(--accent)] hover:text-[var(--accent)]" style={{ border: '1px solid var(--border)', color: 'var(--text)' }}>
+          </MagneticButton>
+          <MagneticButton as="a" href="#projects" className="px-7 py-3.5 rounded-xl text-sm font-semibold transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]" style={{ border: '1px solid var(--border)', color: 'var(--text)' }}>
             {tr.hero.cta2}
-          </a>
-        </div>
+          </MagneticButton>
+        </motion.div>
 
-        {/* Stats */}
-        <div className={`flex gap-12 mt-16 pt-8 flex-wrap ${isAr ? 'flex-row-reverse' : ''}`} style={{ borderTop: '1px solid var(--border)' }}>
-          {stats.map((s: any) => (
-            <div key={s.value}>
-              <div className="text-3xl font-bold font-mono" style={{ background: 'linear-gradient(135deg,var(--accent),var(--accent2))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                {s.value}
-              </div>
-              <div className="text-xs tracking-wide mt-1" style={{ color: 'var(--muted)' }}>
-                {isAr ? s.labelAr : s.label}
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* Trust Statement */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-6 text-xs font-mono text-white/50"
+        >
+          🔒 {tr.hero.trust}
+        </motion.div>
       </div>
     </section>
   )

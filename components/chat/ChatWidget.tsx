@@ -20,10 +20,9 @@ export default function ChatWidget({ lang, webhook }: { lang: Locale; webhook: s
   const msgsRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  // Reset chat when lang changes
   useEffect(() => {
     setMsgs([{ text: tr.chat.welcome, isBot: true }])
-  }, [lang])
+  }, [lang, tr.chat.welcome])
 
   useEffect(() => {
     if (msgsRef.current) msgsRef.current.scrollTop = msgsRef.current.scrollHeight
@@ -33,30 +32,39 @@ export default function ChatWidget({ lang, webhook }: { lang: Locale; webhook: s
     if (open) setTimeout(() => inputRef.current?.focus(), 320)
   }, [open])
 
-  async function send() {
+  async function sendMsg() {
+    if (!input.trim() || loading) return
     const text = input.trim()
-    if (!text || loading) return
-    setMsgs(p => [...p, { text, isBot: false }])
     setInput('')
+    setMsgs(p => [...p, { text, isBot: false }])
     setLoading(true)
+
     try {
       const res = await fetch(webhook, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: text, lang, source: 'portfolio_chat' }),
+        body: JSON.stringify({
+          message: text,
+          chat_history: msgs,
+          mode: 'lead_qualification',
+          target_action: 'book_free_audit',
+          lang,
+          source: 'portfolio_chat_widget',
+        }),
       })
+
       if (res.ok) {
-        const raw = await res.json()
-        const d = Array.isArray(raw) && raw.length ? raw[0] : raw
-        const reply = d.output ?? d.reply ?? d.message ?? d.text ?? (isAr ? 'عذراً، لم أفهم الرد.' : 'Sorry, could not parse response.')
+        const data = await res.json()
+        const reply = data.output || data.response || data.message || (isAr ? 'شكراً لرسالتك! يمكنك حجز جلسة تدقيق أتمتة مجانية مباشرة عبر نموذج التواصل في الأسفل.' : 'Thank you! You can also book a Free Automation Audit directly through the contact section below.')
         setMsgs(p => [...p, { text: String(reply), isBot: true }])
       } else {
-        setMsgs(p => [...p, { text: isAr ? '⚠️ حدث خطأ في الاتصال.' : '⚠️ Connection error, please try again.', isBot: true }])
+        throw new Error()
       }
     } catch {
-      setMsgs(p => [...p, { text: isAr ? '⚠️ تعذر الاتصال بالـ Webhook.' : '⚠️ Could not reach the Webhook.', isBot: true }])
+      setMsgs(p => [...p, { text: isAr ? 'عذراً، حدث خطأ. يمكنك مراسلة أحمد عبر واتساب أو البريد مباشرة!' : "Sorry, an error occurred. You can reach out via WhatsApp or email directly!", isBot: true }])
+    } finally {
+      setLoading(false)
     }
-    setLoading(false)
   }
 
   return (
@@ -133,7 +141,7 @@ export default function ChatWidget({ lang, webhook }: { lang: Locale; webhook: s
             ref={inputRef}
             value={input}
             onChange={e => setInput(e.target.value)}
-            onKeyDown={e => e.key === 'Enter' && !e.shiftKey && (e.preventDefault(), send())}
+            onKeyDown={e => e.key === 'Enter' && !e.shiftKey && (e.preventDefault(), sendMsg())}
             placeholder={tr.chat.placeholder}
             dir={isAr ? 'rtl' : 'ltr'}
             className="flex-1 rounded-xl px-3 py-2 text-[13px] outline-none transition-colors"
@@ -142,7 +150,7 @@ export default function ChatWidget({ lang, webhook }: { lang: Locale; webhook: s
             onBlur={e => e.target.style.borderColor = 'var(--input-border,rgba(255,255,255,.08))'}
           />
           <button
-            onClick={send}
+            onClick={sendMsg}
             disabled={loading}
             className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all hover:scale-110 disabled:opacity-40"
             style={{ background: 'linear-gradient(135deg,#0a1628,#0e7e68)' }}

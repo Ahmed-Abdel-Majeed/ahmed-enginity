@@ -37,6 +37,11 @@ export default function YouTube({ lang, videos }: { lang: Locale; videos: any[] 
           </a>
         ))}
       </div>
+      <div className="mt-10 text-center">
+        <a href="https://youtube.com/@AhmedEnginity" target="_blank" rel="noopener noreferrer" className="px-7 py-3 rounded-xl text-xs font-mono transition-all hover:bg-[rgba(255,0,0,.1)] inline-block" style={{ border: '1px solid rgba(255,0,0,.4)', color: '#ff4444' }}>
+          {tr.youtube.cta}
+        </a>
+      </div>
     </section>
   )
 }

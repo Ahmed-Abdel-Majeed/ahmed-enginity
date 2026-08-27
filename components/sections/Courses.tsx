@@ -52,6 +52,13 @@ export default function Courses({ lang, courses }: { lang: Locale; courses: any[
           </div>
         ))}
       </div>
+      {courses.length > 0 && (
+        <div className="mt-10 text-center">
+          <a href="https://www.udemy.com/user/ahmed-33706/" target="_blank" rel="noopener noreferrer" className="px-7 py-3 rounded-xl text-xs font-mono transition-all hover:bg-[rgba(0,212,255,.1)] inline-block" style={{ border: '1px solid var(--accent)', color: 'var(--accent)' }}>
+            {tr.courses.cta}
+          </a>
+        </div>
+      )}
     </section>
   )
 }
