@@ -1,5 +1,5 @@
 'use client';
-import { useRef, ReactNode, useState } from 'react';
+import { useRef, ReactNode, useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, useReducedMotion } from 'framer-motion';
 
 interface MagneticButtonProps {
@@ -15,6 +15,7 @@ export function MagneticButton({ children, className = '', as: Component = 'butt
   const ref = useRef<HTMLElement>(null);
   const shouldReduceMotion = useReducedMotion();
   const [isHovered, setIsHovered] = useState(false);
+  const [isTouch, setIsTouch] = useState(false);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -47,7 +48,13 @@ export function MagneticButton({ children, className = '', as: Component = 'butt
     y.set(0);
   };
 
-  if (shouldReduceMotion) {
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(hover: none)').matches) {
+      setIsTouch(true);
+    }
+  }, []);
+
+  if (shouldReduceMotion || isTouch) {
     return (
       <Component className={className} {...props}>
         {children}
