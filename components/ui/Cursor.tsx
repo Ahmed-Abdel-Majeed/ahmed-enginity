@@ -5,6 +5,11 @@ import { motion, useSpring, useMotionValue } from 'framer-motion'
 export default function Cursor() {
   const [isHovered, setIsHovered] = useState(false)
   const [isTouch, setIsTouch] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
   
   const mouseX = useMotionValue(-100)
   const mouseY = useMotionValue(-100)
@@ -39,7 +44,7 @@ export default function Cursor() {
     }
   }, [mouseX, mouseY])
 
-  if (isTouch) return null;
+  if (!mounted || isTouch) return null;
 
   return (
     <>
