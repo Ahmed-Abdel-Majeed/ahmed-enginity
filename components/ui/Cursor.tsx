@@ -44,6 +44,9 @@ export default function Cursor() {
     }
   }, [mouseX, mouseY])
 
+  const dotX = useSpring(mouseX, { stiffness: 1000, damping: 40 })
+  const dotY = useSpring(mouseY, { stiffness: 1000, damping: 40 })
+
   if (!mounted || isTouch) return null;
 
   return (
@@ -52,8 +55,8 @@ export default function Cursor() {
         className="fixed top-0 left-0 w-3 h-3 rounded-full pointer-events-none z-[9999]" 
         style={{ 
           background: 'var(--accent)', 
-          x: useSpring(mouseX, { stiffness: 1000, damping: 40 }), 
-          y: useSpring(mouseY, { stiffness: 1000, damping: 40 }),
+          x: dotX, 
+          y: dotY,
           translateX: '-50%',
           translateY: '-50%',
           scale: isHovered ? 0 : 1,
