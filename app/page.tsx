@@ -1,4 +1,5 @@
-import { redirect } from 'next/navigation'
-export default function Root() {
-  redirect('/en')
+import Home from './[lang]/page'
+
+export default async function RootPage() {
+  return <Home params={Promise.resolve({ lang: 'en' })} />
 }
