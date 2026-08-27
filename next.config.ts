@@ -7,11 +7,7 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'i.ytimg.com' },
     ],
   },
-  async redirects() {
-    return [
-      { source: '/', destination: '/en', permanent: false },
-    ]
-  },
+
   async headers() {
     return [
       {
