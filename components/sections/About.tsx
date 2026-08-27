@@ -65,55 +65,20 @@ export default function About({ lang, profile }: { lang: Locale; profile: any })
           </p>
         </motion.div>
 
-        {/* Bento Grid (Expertise & Skills) */}
-        <div className={`lg:w-7/12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full`}>
-          {/* Main Expertise Matrix */}
-          <TiltCard intensity={10} className="col-span-1 md:col-span-2 lg:col-span-3 p-7 bg-white/5 backdrop-blur-md rounded-2xl border border-white/5">
-            <div className="font-mono text-xs tracking-widest mb-6" style={{ color: 'var(--accent)' }}>
-              // expertise_matrix
-            </div>
-            {profile.expertise.map((e: any, i: number) => (
-              <div key={e.label} className={`flex items-center py-3 border-b last:border-0 ${isAr ? 'flex-row-reverse' : ''}`} style={{ borderColor: 'rgba(255,255,255,.05)' }}>
-                <span className="text-xs min-w-[130px] font-sans" style={{ color: 'var(--muted)' }}>
-                  {isAr ? e.labelAr : e.label}
-                </span>
-                <div className="flex-1 mx-4 h-1.5 rounded-full overflow-hidden relative" style={{ background: 'rgba(255,255,255,.06)' }}>
-                  <motion.div
-                    className="absolute top-0 h-full rounded-full"
-                    style={{ background: 'linear-gradient(90deg,var(--accent),var(--accent2))' }}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${e.value}%` }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 1.5, delay: 0.2 + (i * 0.1), ease: "easeOut" }}
-                  />
-                </div>
-                <span className="font-mono text-xs min-w-[36px] text-right" style={{ color: 'var(--text)' }}>
-                  {e.value}%
-                </span>
-              </div>
-            ))}
-          </TiltCard>
-
-          {/* Top Tool Badges */}
-          {profile.skills.slice(0, 3).map((skill: string, i: number) => (
-            <motion.div key={skill} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 + (i * 0.1) }}>
-              <TiltCard intensity={25} className="h-full p-6 flex flex-col justify-center items-center rounded-2xl border border-white/5 bg-gradient-to-br from-[var(--card)] to-transparent relative overflow-hidden group">
-                <div className="absolute inset-0 bg-[var(--accent)] opacity-0 group-hover:opacity-5 transition-opacity duration-300" />
-                <span className="font-bold text-lg font-sans tracking-tight block text-center" style={{ color: 'var(--text)' }}>{skill}</span>
-              </TiltCard>
-            </motion.div>
+        {/* Consulting Philosophy Principles Grid */}
+        <div className="lg:w-7/12 grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+          {[
+            { num: '01', title: isAr ? 'الأولوية للأعمال' : 'Business-First Architecture', desc: isAr ? 'نبدأ من الهدف المالي أو التشغيلي للشركة، وليس بالتقنيات أو الأدوات.' : 'We start with the business ROI and operational goal, not raw software tools.' },
+            { num: '02', title: isAr ? 'جاهزة للإنتاج' : 'Production-Ready Reliability', desc: isAr ? 'أنظمة أتمتة موثوقة ذات نسبة تشغيل 99.9% مع إمكانية المراقبة المستمرة.' : 'Battle-tested systems built for 99.9% uptime with full error handling.' },
+            { num: '03', title: isAr ? 'التصعيد البشري' : 'Human-Aware Integration', desc: isAr ? 'الذكاء الاصطناعي يُكمل الفريق البشري وينقل المهام المعقدة بسلاسة.' : 'AI agents seamlessly escalate complex cases to your staff when needed.' },
+            { num: '04', title: isAr ? 'أثر قابل للقياس' : 'Measurable Impact', desc: isAr ? 'توفير ساعات العمل، تقليل تكلفة الدعم، وزيادة سرعة الاستجابة.' : 'Clear metrics on saved hours, reduced support load, and faster response rates.' }
+          ].map((principle) => (
+            <TiltCard key={principle.num} intensity={8} className="p-6 bg-white/[0.02] border border-white/5 rounded-2xl hover:border-[var(--accent)]/30 transition-all">
+              <div className="font-mono text-xs font-bold text-[var(--accent)] mb-2">{principle.num} // PRINCIPLE</div>
+              <h4 className="text-base font-bold text-white mb-2 font-sans">{principle.title}</h4>
+              <p className="text-xs text-white/70 leading-relaxed font-sans">{principle.desc}</p>
+            </TiltCard>
           ))}
-
-          {/* Remaining Skills Pill Grid */}
-          <TiltCard intensity={5} className="col-span-1 md:col-span-2 lg:col-span-3 p-6 bg-[var(--card)] rounded-2xl border border-white/5">
-            <div className={`flex flex-wrap gap-2 ${isAr ? 'flex-row-reverse' : ''}`}>
-              {profile.skills.slice(3).map((s: string) => (
-                <span key={s} className="px-3 py-1.5 rounded-full text-xs font-mono transition-all hover:-translate-y-0.5 hover:shadow-md cursor-default" style={{ background: 'rgba(255,255,255,.03)', border: '1px solid rgba(255,255,255,.05)', color: 'var(--muted)' }}>
-                  {s}
-                </span>
-              ))}
-            </div>
-          </TiltCard>
         </div>
       </div>
     </section>

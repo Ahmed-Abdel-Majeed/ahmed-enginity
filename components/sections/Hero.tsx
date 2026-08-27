@@ -85,17 +85,32 @@ export default function Hero({ lang, profile }: { lang: Locale; profile: any }) 
               <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)]/80 via-transparent to-transparent mix-blend-overlay" />
             </div>
             
-            {/* Floating tags inside 3D space */}
-            <div className="animate-float absolute -top-10 -left-10 w-48 rounded-xl p-3 glass-card pointer-events-auto" style={{ transform: 'translateZ(40px)', animationDelay: '0s' }}>
-              <div className="font-mono text-[10px] tracking-widest mb-2" style={{ color: 'var(--accent)' }}>WhatsApp AI Agent</div>
-              <div className="h-1 rounded mb-1.5 opacity-60" style={{ background: 'linear-gradient(90deg,var(--accent),transparent)', width: '92%' }} />
-              <div className="flex gap-1.5 mt-2"><div className="w-1.5 h-1.5 rounded-full bg-emerald-400"/><div className="w-1.5 h-1.5 rounded-full" style={{background:'var(--accent)'}}/></div>
+            {/* Floating tags inside 3D space - Business Workflow Nodes */}
+            <div className="animate-float absolute -top-10 -left-12 w-52 rounded-xl p-3 glass-card pointer-events-auto" style={{ transform: 'translateZ(40px)', animationDelay: '0s', borderColor: 'rgba(45,212,191,.3)' }}>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
+                <div className="font-mono text-[10px] tracking-widest font-bold" style={{ color: '#2dd4bf' }}>WhatsApp AI Agent</div>
+              </div>
+              <p className="text-[11px] text-white/80 leading-tight">Instant Inquiry &amp; Qualification</p>
+              <div className="h-0.5 rounded mt-2 opacity-80" style={{ background: 'linear-gradient(90deg,#2dd4bf,transparent)' }} />
             </div>
             
-            <div className="animate-float absolute -bottom-8 -right-8 w-40 rounded-xl p-3 glass-card pointer-events-auto" style={{ transform: 'translateZ(60px)', animationDelay: '-2s', borderColor: 'rgba(124,58,237,.25)' }}>
-              <div className="font-mono text-[10px] tracking-widest mb-2" style={{ color: 'var(--accent2)' }}>n8n Workflow</div>
-              <div className="h-1 rounded mb-1.5 opacity-60" style={{ background: 'linear-gradient(90deg,var(--accent2),transparent)', width: '90%' }} />
-              <div className="flex gap-1.5 mt-2"><div className="w-1.5 h-1.5 rounded-full" style={{background:'var(--accent2)'}}/><div className="w-1.5 h-1.5 rounded-full" style={{background:'var(--accent)'}}/></div>
+            <div className="animate-float absolute top-[40%] -right-12 w-48 rounded-xl p-3 glass-card pointer-events-auto" style={{ transform: 'translateZ(50px)', animationDelay: '-1.5s', borderColor: 'rgba(167,139,250,.3)' }}>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-2 h-2 rounded-full bg-purple-400" />
+                <div className="font-mono text-[10px] tracking-widest font-bold" style={{ color: '#a78bfa' }}>CRM Auto-Sync</div>
+              </div>
+              <p className="text-[11px] text-white/80 leading-tight">Lead Data &amp; Booking Pipeline</p>
+              <div className="h-0.5 rounded mt-2 opacity-80" style={{ background: 'linear-gradient(90deg,#a78bfa,transparent)' }} />
+            </div>
+
+            <div className="animate-float absolute -bottom-8 -left-8 w-44 rounded-xl p-3 glass-card pointer-events-auto" style={{ transform: 'translateZ(60px)', animationDelay: '-3s', borderColor: 'rgba(0,212,255,.3)' }}>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-2 h-2 rounded-full bg-cyan-400" />
+                <div className="font-mono text-[10px] tracking-widest font-bold" style={{ color: '#00d4ff' }}>Voice &amp; Follow-up</div>
+              </div>
+              <p className="text-[11px] text-white/80 leading-tight">24/7 Smart Appointment Call</p>
+              <div className="h-0.5 rounded mt-2 opacity-80" style={{ background: 'linear-gradient(90deg,#00d4ff,transparent)' }} />
             </div>
           </TiltCard>
         </motion.div>

@@ -122,11 +122,14 @@ export default function Contact({ lang, profile, socials }: { lang: Locale; prof
               <button
                 type="submit"
                 disabled={status === 'sending'}
-                className="w-full py-3 rounded-xl text-sm font-semibold text-white transition-all hover:opacity-90 disabled:opacity-50"
-                style={{ background: 'linear-gradient(135deg,var(--accent),var(--accent2))' }}
+                className="w-full py-3.5 rounded-xl text-sm font-bold text-white transition-all hover:opacity-90 disabled:opacity-50 shadow-lg"
+                style={{ background: 'linear-gradient(135deg,var(--accent),var(--accent2))', boxShadow: '0 4px 20px rgba(0,212,255,.2)' }}
               >
                 {status === 'sending' ? (isAr ? 'جارٍ الإرسال…' : 'Sending…') : tr.contact.submit}
               </button>
+              <p className="text-center font-mono text-[11px] mt-2 opacity-60" style={{ color: 'var(--muted)' }}>
+                ⚡ {isAr ? 'عادةً ما يتم الرد خلال بضع ساعات.' : 'Usually replies within a few hours.'}
+              </p>
             </form>
           )}
         </div>

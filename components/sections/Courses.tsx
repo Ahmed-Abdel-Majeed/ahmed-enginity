@@ -11,16 +11,23 @@ export default function Courses({ lang, courses }: { lang: Locale; courses: any[
       <div className="grid md:grid-cols-2 gap-6">
         {courses.map((c: any) => (
           <div key={c.id} className="glass-card rounded-2xl overflow-hidden" style={isAr ? { textAlign: 'right' } : {}}>
-            <div className="h-48 relative overflow-hidden" style={{ background: 'linear-gradient(135deg,#0a1628 0%,#1a0a3a 100%)' }}>
+            <div className="h-48 relative overflow-hidden bg-gradient-to-br from-[#061020] via-[#091730] to-[#0d0722]">
+              {/* CSS/SVG Background Grid fallback */}
+              <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(var(--accent) 1px, transparent 1px)', backgroundSize: '16px 16px' }} />
               <img 
-                src={c.thumbnail} 
+                src={c.thumbnail || `/images/courses/${c.id}.jpg`} 
                 alt={isAr ? c.titleAr : c.title}
-                className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity"
+                loading="lazy"
+                onError={(e) => {
+                  // Graceful fallback to CSS gradient visual if local file not found
+                  (e.target as HTMLElement).style.display = 'none';
+                }}
+                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity relative z-10"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
-              <div className="absolute inset-0 flex items-end p-5">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050a12] via-transparent to-transparent z-20" />
+              <div className="absolute inset-0 flex items-end p-5 z-30">
                 <div>
-                  <span className="font-mono text-xs px-2 py-1 rounded" style={{ background: 'rgba(124,58,237,.3)', border: '1px solid rgba(124,58,237,.4)', color: '#c4b5fd', backdropFilter: 'blur(4px)' }}>{c.platform}</span>
+                  <span className="font-mono text-xs px-2.5 py-1 rounded-md" style={{ background: 'rgba(124,58,237,.25)', border: '1px solid rgba(124,58,237,.4)', color: '#c4b5fd', backdropFilter: 'blur(6px)' }}>{c.platform}</span>
                 </div>
               </div>
             </div>
