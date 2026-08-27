@@ -15,14 +15,17 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Locale; slug: string }> }) {
   const { lang, slug } = await params
-  const post = getBlogPost(slug) as any as any
+  const post = getBlogPost(slug) as any
+  if (!post) {
+    return buildMetadata({ title: 'Article Not Found', description: '', path: `/blog/${slug}`, lang })
+  }
   return buildMetadata({ title: post.title, description: post.excerpt || '', path: `/blog/${slug}`, lang })
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ lang: Locale; slug: string }> }) {
   const { lang, slug } = await params
   const post = getBlogPost(slug) as any
-  if (!post) notFound()
+  if (!post) return notFound()
   const [profile, socials] = [getProfile(), getSocials()]
   const tr = t[lang]
   const isAr = lang === 'ar'
