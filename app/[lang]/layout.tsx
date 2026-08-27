@@ -35,14 +35,6 @@ export default async function LangLayout({
 
   return (
     <div dir={dir}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema()) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
-      />
       <NoiseOverlay />
       {children}
     </div>
