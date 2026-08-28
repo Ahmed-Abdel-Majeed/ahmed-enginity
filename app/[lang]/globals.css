@@ -115,3 +115,30 @@ body {
 .animate-pulse-dot { animation: pulse-dot 2s infinite; }
 .animate-float { animation: float 6s ease-in-out infinite; }
 .animate-fab { animation: fab-pulse 2.2s ease-in-out infinite; }
+
+/* Dedicated Mobile Responsive Polish (<= 768px) */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    width: 100vw;
+  }
+
+  /* Optimize section spacing for mobile */
+  section {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  /* Prevent grid overflow */
+  .grid {
+    width: 100%;
+  }
+
+  /* Ensure diagrams fit cleanly */
+  .relative.h-60 {
+    height: 14rem !important;
+  }
+}
+
