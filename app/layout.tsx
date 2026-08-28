@@ -6,6 +6,12 @@ export const metadata: Metadata = {
   description: 'AI Automation Engineer specializing in n8n, AI Agents, WhatsApp Automation, and business automation systems.',
 }
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
